@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <app-header></app-header>
-    <v-content>
+    <v-main>
       <home></home>
-    </v-content>
+    </v-main>
     <app-footer></app-footer>
   </v-app>
 </template>

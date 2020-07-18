@@ -2,6 +2,10 @@ import authConfig from '../config/auth.config';
 const jwt = require('jsonwebtoken');
 
 
+export function parseReal2Float(value) {
+    return parseFloat(value.replace(',', '.'));
+}
+
 export function validateToken(token) {
     return jwt.verify(token, authConfig.secretKey, function(err, decoded) {
         if(decoded) {

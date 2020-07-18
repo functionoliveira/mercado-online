@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { parseReal2Float } from '../../helpers/helpers';
 
 const state = {
     items: {},
@@ -8,7 +9,28 @@ const state = {
 // getters
 const getters = {
     // Getters de Sucesso 
-    getTotal: state => state.items.values().reduce(item => (item.qtd * item.price)),
+    getTotal: state => { 
+        let list = Object.values(state.items);
+        if(list.length > 0){
+            return list.reduce((sum, item) => sum + (item.qtd * parseReal2Float(item.price)), 0);
+        }else{
+            return 0.0;
+        }
+    },
+    getTotalWithDiscount: state => { 
+        let list = Object.values(state.items);
+        if(list.length > 0){
+            return list.reduce((sum, item) => {
+                if(item.priceWithDiscount) {
+                    return sum + (item.qtd * parseReal2Float(item.priceWithDiscount));
+                }else{
+                    return sum + (item.qtd * parseReal2Float(item.price));
+                }
+            }, 0);
+        }else{
+            return 0.0;
+        }
+    },
     getItems: state => state.items
 }
 
