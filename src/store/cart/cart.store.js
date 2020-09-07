@@ -31,7 +31,7 @@ const getters = {
             return 0.0;
         }
     },
-    getItems: state => state.items
+    getItems: state => Object.values(state.items)
 }
 
 // actions

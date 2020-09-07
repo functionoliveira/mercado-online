@@ -8,3 +8,9 @@
   </footer>
 </template>
 
+<style>
+  footer {
+    padding: 30px 20px;
+    background: black;
+  }
+</style>

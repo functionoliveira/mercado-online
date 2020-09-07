@@ -1,0 +1,23 @@
+.schedule {
+    &__wrap {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__day {
+        padding: 10px;
+    }
+
+    .day {
+        &__turn {
+            text-align: left;
+        }
+    }
+
+    .v-btn {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        width: 100%;
+    }
+}

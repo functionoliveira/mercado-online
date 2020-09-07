@@ -1,18 +1,22 @@
 <template>
   <header v-bind:class="position">
-      <v-row align="center" justify="space-between">
-          <v-col cols="auto">
-            <img src="" alt="o bairro - mercado online" />
+      <v-row class="mx-0" align="center" justify="space-between">
+          <v-col cols="auto" class="px-0 py-0">
+            <a href="#" class="main-logo">
+              <img :src="mainLogo" alt="o bairro - mercado online" />
+            </a>
           </v-col>
           <nav @click="activate">
             <a href="javascript:void()" data-scroll-to="#inicio" class="font-weight-bold">Início</a>
             <a href="javascript:void()" data-scroll-to="#ofertas" class="font-weight-bold">Ofertas</a>
             <a href="javascript:void()" data-scroll-to="#mais-procurados" class="font-weight-bold">Mais procurados</a>
             <a href="javascript:void()" data-scroll-to="#prateleiras" class="font-weight-bold">Prateleiras</a>
-            <a href="javascript:void()" class="font-weight-bold">Contato</a>
+            <a href="javascript:void()" data-scroll-to="#contatos" class="font-weight-bold">Contato</a>
           </nav>
-          <v-col cols="auto">
-            <v-icon large color="green darken-2">cart</v-icon>
+          <v-col cols="auto" class="px-0 py-0">
+              <v-btn text>
+                <v-icon>mdi-login-variant</v-icon>
+              </v-btn>
           </v-col>
       </v-row>
   </header>
@@ -20,11 +24,13 @@
 
 <script>
 import goTo from 'vuetify/es5/services/goto';
+import mainLogo from '../assets/logos/main-logo.png';
 
 export default {
   data: () => ({
     position: '',
-    menuItemActive: null
+    menuItemActive: null,
+    mainLogo: mainLogo
   }),
   mounted(){
     window.addEventListener('scroll', () => {
@@ -92,5 +98,15 @@ export default {
 
   header nav a:hover::after {
     width: 100%;
+  }
+
+  header .main-logo {
+    display: block;
+    height: 45px;
+  }
+
+  header .main-logo img {    
+    height: 100%;
+    object-fit: contain;
   }
 </style>

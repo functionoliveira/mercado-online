@@ -1,112 +1,51 @@
 <template>
   <v-container>
     <cart></cart>
+    <product-search id="inicio"></product-search>
+    <offers-section />
+    <most-popular />
 
-      <product-search id="inicio"></product-search>
-      <section id="ofertas" class="mt-4">
-        <v-row>
-          <v-col>
-            <h2>Ofertas da semana</h2>
-            <v-divider
-              class="my-4"
-              horizontal
-            ></v-divider>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="auto">
-            <v-slide-group
-              class="pa-4"
-              center-active
-              show-arrows
-            >
-              <v-slide-item
-                v-for="product in offers"
-                :key="product.id"
-                class="mx-3 my-3"
-              >
-                <product-card
-                  :cod="product.cod"
-                  :categoryID="product.categoryID"
-                  :image="product.image"
-                  :title="product.title"
-                  :price="product.price"
-                  :priceWithDiscount="product.priceWithDiscount"
-                  :discount="product.discount"
-                ></product-card>  
-              </v-slide-item>
-            </v-slide-group>
-          </v-col>  
-        </v-row>    
-      </section>
+    <section id="prateleiras" class="mt-4">
+      <v-row>
+        <v-col>
+          <h2>Prateleiras</h2>
+          <v-divider
+            class="my-4"
+            horizontal
+          ></v-divider>
+        </v-col>
+      </v-row> 
+      <v-row>
+        <v-col cols="12">
+          <shelf></shelf>
+        </v-col>  
+      </v-row>         
+    </section>
 
-      <section id="mais-procurados" class="mt-4">
-        <v-row>
-          <v-col>
-            <h2>Produtos</h2>
-            <v-divider
-              class="my-4"
-              horizontal
-            ></v-divider>
-          </v-col>
-        </v-row> 
-        <v-row>
-          <v-col cols="auto">
-            <v-slide-group
-              class="pa-4"
-              center-active
-              show-arrows
-            >
-              <v-slide-item
-                v-for="product in products"
-                :key="product.id"
-                class="mx-3 my-3"
-              >
-                <product-card
-                  :cod="product.cod"
-                  :categoryID="product.categoryID"
-                  :image="product.image"
-                  :title="product.title"
-                  :price="product.price"
-                  :priceWithDiscount="product.priceWithDiscount"
-                  :discount="product.discount"
-                ></product-card>  
-              </v-slide-item>
-            </v-slide-group>
-          </v-col>  
-        </v-row>         
-      </section>
-
-      <section id="prateleiras" class="mt-4">
-        <v-row>
-          <v-col>
-            <h2>Prateleiras</h2>
-            <v-divider
-              class="my-4"
-              horizontal
-            ></v-divider>
-          </v-col>
-        </v-row> 
-        <v-row>
-          <v-col cols="12">
-            <shelf></shelf>
-          </v-col>  
-        </v-row>         
-      </section>
+    <section id="contatos" class="mt-4">
+      <h2>Contato</h2>
+      <p>Whatsapp - (51) 99988-7766 - (51) 99988-7766 - (51) 99988-7766</p>
+      <p>SAC - (51) 3030-3030</p>
+      <p><a href="mailto:silver.becker.sac@gmail.com" >SilverBeckerSAC@gmail.com</a></p>
+      <p>Endereço - Viamão, rua 13 de maio número 290, Esmeralda.</p>
+    </section>
   </v-container>
 </template>
 
 <script>
 import { offers, products } from '../data';
 import ProductSearch from 'Components/ProductSearch';
-import ProductCard from 'Components/ProductCard';
 import Shelf from 'Components/Shelf';
 import Cart from 'Components/Cart';
 
+import OffersSection from '@/layout/OffersSection/OffersSection';
+import MostPopular from '@/layout/MostPopular/MostPopular';
+
 export default {
   components: {
+    MostPopular,
+    OffersSection,
     ProductSearch,
-    ProductCard,
     Shelf,
     Cart
   },

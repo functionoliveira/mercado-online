@@ -57,8 +57,12 @@
           ></v-select>
         </v-col>
         <v-col cols="6" class="pl-0">
-          <v-btn color="error" tile outlined small @click="delItem({product: $props, qtd: qtdAdd})">-</v-btn>
-          <v-btn color="primary" tile outlined small @click="addItem({product: $props, qtd: qtdAdd})">+</v-btn>
+          <v-btn color="error" tile text small @click="delItem({product: $props, qtd: qtdAdd})">
+            <v-icon>mdi-minus</v-icon>
+          </v-btn>
+          <v-btn color="primary" tile text small @click="addItem({product: $props, qtd: qtdAdd})">
+            <v-icon>mdi-plus</v-icon>
+          </v-btn>
         </v-col>
       </v-row>
     </v-card-text>
